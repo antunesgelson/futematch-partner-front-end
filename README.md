@@ -34,3 +34,15 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## FuteMatch Partner — Login Page
+
+The login screen is available at `/signin` and implemented in `src/app/signin/LoginPage.tsx`.
+
+Assets expected under `public/images`:
+- `soccer-court.jpg` — Background image shown on the left side for large screens
+- `futematch-logo.svg` — Logo displayed on the form card and badge
+
+You can replace these files with your own images. Keep the same names or update the paths in `LoginPage.tsx` accordingly.
+
+Styling uses Tailwind CSS and includes a subtle Framer Motion fade-in animation for the form card. To disable animations, remove the `motion` wrapper and import.
