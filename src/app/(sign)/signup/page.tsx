@@ -1,4 +1,5 @@
 "use client";
+import { CONTAINER } from '@/animation';
 import Step1 from '@/app/(sign)/signup/step1';
 import Background from '@/assets/background/teste.png';
 import { motion } from 'framer-motion';
@@ -11,20 +12,13 @@ import Step3 from './step3';
 
 export default function Signup() {
     const [step, setStep] = useState(1);
-    const container = {
-        hidden: { opacity: 0, y: 16 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: { duration: 0.55, ease: 'easeOut', when: 'beforeChildren', staggerChildren: 0.08 }
-        }
-    } as const;
+
 
     return (
         <main className="min-h-screen w-full grid grid-cols-12">
             <motion.section
-                variants={container}
-                className="col-span-6 relative h-full"
+                variants={CONTAINER}
+                className="md:col-span-6 relative h-full hidden md:block"
                 style={{ backgroundColor: 'color(srgb 0.1886 0.1019 0.1471)' }}
                 initial="hidden"
                 animate="visible">
@@ -37,9 +31,11 @@ export default function Signup() {
                     priority
                 />
             </motion.section>
-            {step === 1 && <Step1 setStep={setStep} />}
-            {step === 2 && <Step2 setStep={setStep} />}
-            {step === 3 && <Step3 setStep={setStep} />}
+            <div className='md:col-span-6 col-span-12 md:w-7/12 mx-auto md:px-0 px-10'>
+                {step === 1 && <Step1 setStep={setStep} />}
+                {step === 2 && <Step2 setStep={setStep} />}
+                {step === 3 && <Step3 setStep={setStep} />}
+            </div>
         </main>
     );
 }

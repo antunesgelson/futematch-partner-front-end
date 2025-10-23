@@ -2,13 +2,12 @@
 
 import { Button } from "@/components/ui/button"
 import {
-    Sheet,
-    SheetContent,
-    SheetHeader,
-    SheetTitle,
-    SheetTrigger,
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
 } from "@/components/ui/sheet"
-import { SidebarTrigger } from "@/components/ui/sidebar"
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 import { Bell } from "lucide-react"
 import * as React from "react"
@@ -17,19 +16,22 @@ export function DashboardHeader() {
   const [hasUnread, setHasUnread] = React.useState(true)
 
   return (
-    <div className="sticky top-0 z-40 flex items-center justify-between  bg-background/80 px-3 py-2 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="flex items-center gap-2">
-        {/* Toggle sidebar on mobile */}
-        <div className="md:hidden">
-          <SidebarTrigger />
+    <header className=" border-b border-border sticky top-0 z-40 flex items-center justify-between  bg-background/80 px-3 py-2 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className=" bg-card">
+        <div className=" p-2  ">
+          <h1 className="text-3xl font-bold text-foreground">
+            <span className="text-primary">FutMach</span> Partner
+          </h1>
+          <p className="mt-1 text-sm text-muted-foreground">
+            Gerencie suas quadras de maneira rápida e eficiente
+          </p>
         </div>
       </div>
-
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 px-3 ">
         <Sheet>
           <Tooltip>
             <TooltipTrigger asChild>
-              <SheetTrigger asChild>
+              <SheetTrigger className="fkle" asChild>
                 <Button variant="ghost" size="icon" aria-label="Abrir notificações" className="relative">
                   <Bell className="size-5" />
                   {hasUnread && (
@@ -61,7 +63,7 @@ export function DashboardHeader() {
           </SheetContent>
         </Sheet>
       </div>
-    </div>
+    </header>
   )
 }
 

@@ -3,38 +3,39 @@
 import { ChevronUp, Settings, User2 } from "lucide-react";
 
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { Separator } from "@/components/ui/separator";
 import {
     Sidebar,
     SidebarContent,
     SidebarFooter,
     SidebarGroup,
     SidebarGroupContent,
-    SidebarGroupLabel,
     SidebarMenu,
     SidebarMenuButton,
     SidebarMenuItem,
-    useSidebar,
+    useSidebar
 } from "@/components/ui/sidebar";
 import Link from "next/link";
 
-import { BsFillPiggyBankFill } from "react-icons/bs";
 import { FaClipboardList, FaTrophy } from "react-icons/fa";
 import { FaChartSimple } from "react-icons/fa6";
-import { MdAccessTimeFilled } from "react-icons/md";
 
 export function AppSidebar() {
     // Menu items.
     const items = [
+        // {
+        //     title: "Gerenciar Horários",
+        //     url: "/dashboard/horarios",
+        //     icon: MdAccessTimeFilled,
+        // },
+        // {
+        //     title: "Financeiro",
+        //     url: "/dashboard/financeiro",
+        //     icon: BsFillPiggyBankFill,
+        // },
         {
-            title: "Gerenciar Horários",
-            url: "/dashboard/horarios",
-            icon: MdAccessTimeFilled,
-        },
-        {
-            title: "Financeiro",
-            url: "/dashboard/financeiro",
-            icon: BsFillPiggyBankFill,
+            title: "Central de Reservas",
+            url: "/dashboard/central-de-reservas",
+            icon: FaClipboardList,
         },
         {
             title: "Relatórios",
@@ -46,12 +47,6 @@ export function AppSidebar() {
             url: "/dashboard/campeonatos",
             icon: FaTrophy,
         },
-        {
-            title: "Central de Reservas",
-            url: "/dashboard/central-de-reservas",
-            icon: FaClipboardList,
-        },
-
         {
             title: "Suporte",
             url: "/dashboard/suporte",
@@ -68,12 +63,12 @@ export function AppSidebar() {
             collapsible="icon">
             <SidebarContent>
                 <SidebarGroup>
-                    <SidebarGroupLabel className="text-xl flex flex-col gap-2 items-start">
+                    {/* <SidebarGroupLabel className="text-xl flex flex-col gap-2 items-start">
                         FutMatch
                         <Separator />
-                    </SidebarGroupLabel>
+                    </SidebarGroupLabel> */}
                     <SidebarGroupContent>
-                        <SidebarMenu className="mt-4">
+                        <SidebarMenu className="">
                             {items.map((item) => (
                                 <SidebarMenuItem className="text-primary" key={item.title}>
                                     <SidebarMenuButton asChild>

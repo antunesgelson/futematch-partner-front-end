@@ -17,9 +17,7 @@ export default function ConditionalSidebar() {
   return (
     <>
       <AppSidebar />
-      <div className='bg-white'>
-        <SidebarTrigger />
-      </div>
+      <SidebarTrigger />
     </>
   )
 }

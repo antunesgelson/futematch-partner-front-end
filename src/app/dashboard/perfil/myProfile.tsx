@@ -1,47 +1,23 @@
-"use client";
-import Logo from '@/assets/logo/logo.png';
-import StepProgress from '@/components/stepprogress';
-import { Button } from '@/components/ui/button';
-import { LabeledInput } from '@/components/ui/labeled-input';
-import { motion } from 'framer-motion';
-import Image from "next/image";
-import Link from 'next/link';
-import { Dispatch, SetStateAction } from 'react';
+'use client'
+import { ITEM_ANIMATION_DOWN } from "@/animation";
+import { Button } from "@/components/ui/button";
+import { LabeledInput } from "@/components/ui/labeled-input";
 
-type Props = {
-    setStep: Dispatch<SetStateAction<number>>;
-}
+import { motion } from "framer-motion";
 
-export default function Step1({ setStep }: Props) {
-    const item = {
-        hidden: { opacity: 0, y: 10 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } }
-    } as const;
+import { HiSave } from "react-icons/hi";
 
 
-
+export default function MyProfile() {
     return (
-        <motion.section
-            className=""
+        <motion.div
             initial="hidden"
             animate="visible"
-            viewport={{ once: true, amount: 0.2 }}>
-            <motion.div variants={item} className='w-full flex flex-col justify-center items-center'>
-                <Image
-                    src={Logo}
-                    alt="Login"
-                    width={300}
-                    height={300}
-                />
-                <StepProgress current={1} step={3} />
-            </motion.div>
-            <motion.div variants={item} className='w-full py-3 '>
-                <h1 className='text-2xl font-semibold'>Cadastre sua quadra</h1>
-                <h2 className='text-sm'>Entre e ganhe a primeira mensalidade grátis</h2>
-            </motion.div>
-
-            <div className='w-full space-y-3'>
+            className="border shadow-md lg:px-10 px-4 py-6 rounded-2xl bg-white">
+            <motion.h1 variants={ITEM_ANIMATION_DOWN} className="lg:text-2xl text-lg font-bold pb-4 ">Meu Perfil</motion.h1>
+            <div className=' gap-3 grid grid-cols-6'>
                 <motion.div
+                    className="col-span-3"
                     initial={{ opacity: 0, y: 30, filter: 'blur(5px)' }}
                     animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                     transition={{ duration: 0.3 }}>
@@ -54,6 +30,7 @@ export default function Step1({ setStep }: Props) {
                 </motion.div>
 
                 <motion.div
+                    className="col-span-3"
                     initial={{ opacity: 0, y: 30, filter: 'blur(5px)' }}
                     animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                     transition={{ duration: 0.3 }}>
@@ -66,6 +43,7 @@ export default function Step1({ setStep }: Props) {
                     />
                 </motion.div>
                 <motion.div
+                    className="col-span-3"
                     initial={{ opacity: 0, y: 30, filter: 'blur(5px)' }}
                     animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                     transition={{ duration: 0.3 }}>
@@ -79,6 +57,7 @@ export default function Step1({ setStep }: Props) {
                     />
                 </motion.div>
                 <motion.div
+                    className="col-span-3"
                     initial={{ opacity: 0, y: 30, filter: 'blur(5px)' }}
                     animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                     transition={{ duration: 0.3 }}>
@@ -92,6 +71,7 @@ export default function Step1({ setStep }: Props) {
                     />
                 </motion.div>
                 <motion.div
+                    className="col-span-3"
                     initial={{ opacity: 0, y: 30, filter: 'blur(5px)' }}
                     animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                     transition={{ duration: 0.5 }}>
@@ -104,27 +84,33 @@ export default function Step1({ setStep }: Props) {
                         required
                     />
                 </motion.div>
+                <motion.div
+                    className="col-span-3"
+                    initial={{ opacity: 0, y: 30, filter: 'blur(5px)' }}
+                    animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                    transition={{ duration: 0.5 }}>
+                    <LabeledInput
+                        name="password"
+                        type="password"
+                        label="Confirmar Senha"
+                        placeholder="••••••••"
+                        autoComplete="password"
+                        required
+                    />
+                </motion.div>
 
                 <motion.div
+                    className="flex justify-end  col-span-6"
                     initial={{ opacity: 0, y: -30, filter: 'blur(5px)' }}
                     animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                    whileHover={{ scale: 1.01 }}
-                    whileTap={{ scale: 0.99 }}>
+                    transition={{ duration: 0.5, delay: 0.2 }}>
                     <Button
-                        className='w-full bg-primary hover:bg-violet-600 h-10'
-                        onClick={() => setStep((prev: number) => prev + 1)}
-                    >
-                        Cadastrar
+                        className=' bg-primary hover:bg-violet-600 '>
+                        <HiSave />
+                        Salvar Alterações
                     </Button>
                 </motion.div>
-
-                <motion.div variants={item} className=' text-center text-sm'>
-                    <Link href="/signin" className='text-gray-600 hover:text-gray-800 '>
-                        Já possui conta ?<span className='text-primary hover:underline underline-offset-2 font-semibold'>Entrar agora</span>
-                    </Link>
-                </motion.div>
             </div>
-        </motion.section>
-    );
+        </motion.div>
+    )
 }

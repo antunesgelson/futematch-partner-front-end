@@ -21,7 +21,7 @@ export default function Step2({ setStep }: Props) {
 
     return (
         <motion.section
-            className="col-span-6 flex flex-col justify-center items-center  w-7/12 mx-auto"
+            className=""
             initial="hidden"
             animate="visible"
             viewport={{ once: true, amount: 0.2 }}>
@@ -42,20 +42,22 @@ export default function Step2({ setStep }: Props) {
             <div className='w-full space-y-3'>
                 <h3 className='text-xs text-primary'>Falta pouco para finalizar seu cadastro! Insira o código que foi enviado no seu email e depois clique em validar.</h3>
                 <motion.div
-                    className='w-full'
+                    className='w-full '
                     initial={{ opacity: 0, y: 30, filter: 'blur(5px)' }}
                     animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                     transition={{ duration: 0.5 }}>
-                    <InputOTP maxLength={6} pattern={REGEXP_ONLY_DIGITS_AND_CHARS}>
-                        <InputOTPGroup>
-                            <InputOTPSlot index={0} />
-                            <InputOTPSlot index={1} />
-                            <InputOTPSlot index={2} />
-                            <InputOTPSlot index={3} />
-                            <InputOTPSlot index={4} />
-                            <InputOTPSlot index={5} />
-                        </InputOTPGroup>
-                    </InputOTP>
+                    <div className='flex justify-center'>
+                        <InputOTP className='' maxLength={6} pattern={REGEXP_ONLY_DIGITS_AND_CHARS}>
+                            <InputOTPGroup>
+                                <InputOTPSlot index={0} />
+                                <InputOTPSlot index={1} />
+                                <InputOTPSlot index={2} />
+                                <InputOTPSlot index={3} />
+                                <InputOTPSlot index={4} />
+                                <InputOTPSlot index={5} />
+                            </InputOTPGroup>
+                        </InputOTP>
+                    </div>
                     <div className='flex justify-end py-2'>
                         <span className='text-xs '>tempo restante: <strong className='text-primary'>01:23</strong></span>
                     </div>

@@ -24,7 +24,7 @@ export default function Step1({ setStep }: Props) {
 
     return (
         <motion.section
-            className="col-span-6 flex flex-col justify-center items-center  w-7/12 mx-auto"
+            className=""
             initial="hidden"
             animate="visible"
             viewport={{ once: true, amount: 0.2 }}>
